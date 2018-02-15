@@ -5,13 +5,11 @@ import com.testpay.sandbox.controller.request.PaymentRequest;
 import com.testpay.sandbox.controller.response.PaymentState;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
+@Table(name = "payment")
 public class PaymentEntity {
     @Id
     @GeneratedValue
