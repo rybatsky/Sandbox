@@ -1,5 +1,7 @@
 package com.testpay.sandbox.controller.request;
 
-public enum PaymentIntent {
+
+public enum PaymentIntent
+{
     ORDER
 }

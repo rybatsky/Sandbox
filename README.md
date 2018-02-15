@@ -41,7 +41,7 @@ until it expires. When it expires, you can get a new token.
 
 Request example:
 ```
-c url -v https://api.testpay.com/oauth2 / token \
+curl -v https://api.testpay.com/oauth2/token \
 -H "Accept: application/json" \
 -H "Accept-Language: en_US" \
 -u " <client_id> : <secret> " \
@@ -75,7 +75,7 @@ With a valid access token, you can make REST API calls.
 
 This sample call creates a TestPay account payment. The access token in the call is an OAuth bearer token.
 ```
-curl -v https: // api.testpay.com / payments / payment \
+curl -v https://api.testpay.com/payments/payment \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <Access-Token> " \
 -d '{
@@ -108,7 +108,7 @@ shows payment details.
 
 Request example:
 ```
-curl -v https: // api.testpay.com / payments / payment \
+curl -v http://localhost:8080/payments/payment \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <Access-Token> " \
 -d '{
