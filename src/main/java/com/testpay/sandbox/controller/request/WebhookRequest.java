@@ -1,8 +1,8 @@
 package com.testpay.sandbox.controller.request;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.codehaus.jackson.annotate.JsonProperty;
 
 @Data
 @AllArgsConstructor
