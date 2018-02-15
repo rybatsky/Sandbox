@@ -11,13 +11,13 @@ implement just two REST methods and send one asynchronous notification.
 Then we will connect our product to your sandbox, so we can initiate and watch our application
 process the requests we make to the TestPay APIs without touching any live TestPay accounts.
 
-##Implementation notes
+## Implementation notes
 * Use one of modern Web frameworks (Spring boot, Dropwizard, etc)
 * Use Maven or Gradle as a build tool
-#The TestPay API Reference
+# The TestPay API Reference
 The TestPay APIs are HTTP-based RESTful APIs that use OAuth 2.0 for authorization. A
 request and response bodies are formatted in JSON.
-##The TestPay payment flow
+## The TestPay payment flow
 1. When the customer is ready to pay for goods or services on your website, they select the
 TestPay payment option on your website.
 2. You obtain the OAuth access token (if needed)
@@ -25,7 +25,7 @@ TestPay payment option on your website.
 TestPay
 4. TestPay provides you with asynchronous notification, sent to your webhook listener,
 confirming the transaction details and status
-##Authentication and authorization
+## Authentication and authorization
 The TestPay REST API uses the OAuth 2.0 protocol to authorize calls. When you create a
 merchant account, TestPay generates a set of OAuth client ID and secret credentials for you
 app. You pass these credentials in the Authorization header in get access token request.
@@ -33,7 +33,7 @@ app. You pass these credentials in the Authorization header in get access token 
 In exchange for these credentials, the TestPay authorization server issues tokens called bearer
 tokens that you use for authorization when you make REST API requests.
 
-###Get an access token
+### Get an access token
 POST /oauth2/token
 
 In response, the TestPay authorization server issues an access token. Re-use the access token
@@ -70,7 +70,7 @@ Where:
 
 when the current one expires.
 
-##Make REST API calls
+## Make REST API calls
 With a valid access token, you can make REST API calls.
 
 This sample call creates a TestPay account payment. The access token in the call is an OAuth bearer token.
@@ -95,8 +95,8 @@ curl -v https: // api.testpay.com / payments / payment \
 }'
 ```
 The successful call returns a JSON-formatted response body with payment details.
-##Payments
-###Create payment
+## Payments
+### Create payment
 POST /payments/payment
 
 Creates a payment. A Payment API call is asynchronous, which lets you show payout details at
@@ -168,17 +168,17 @@ and time format
 * state enum The state of the payment. Available value is: created , approved and
 failed
 
-##API responses
+## API responses
 TestPay API calls return HTTP status codes with JSON response bodies that include
 information about the resource. Each REST API request returns a success or error HTTP status
 code.
-###Success
+### Success
 In the responses, TestPay returns these HTTP status codes for successful request:
 
 Status code Description
 
 200 The request succeeded
-###Error
+### Error
 In the responses for failed requests, TestPay returns 4xx or 5xx status codes.
 For all errors TestPay returns an error response body that includes additional error details in
 format:
@@ -203,18 +203,18 @@ payload media type
 
 500 INTERNAL_SERVER_ERROR An internal server error has occurred
 
-####Validation errors
+#### Validation errors
 
 For validation errors, TestPay returns the HTTP 400 Bad Request status code. To prevent
 validation errors, ensure that parameters are of the right type and conform to constraints.
 
-####Authentication errors
+#### Authentication errors
 
 For authentication errors, TestPay returns the HTTP 401 Unauthorised status code. Access
 token-related issues often cause authentication errors. Ensure that access token is valid and
 present and not expired.
 
-##Webhooks API
+## Webhooks API
 The TestPay REST APIs use webhooks for event notification. Webhooks are HTTP callbacks
 that receive notification messages for events.
 
