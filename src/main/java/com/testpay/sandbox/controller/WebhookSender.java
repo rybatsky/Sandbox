@@ -18,7 +18,7 @@ public class WebhookSender {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
 
-        String secretWord = "secret_word";
+        String secretWord = "secret";
         String sha2str = toSha256(secretWord).toUpperCase();
 
         String fields = paymentEntity.getTransactionAmountCurrency() +
